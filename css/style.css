@@ -3,47 +3,82 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-}
 .container {
     display: flex;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 753px;
-    height: 292px;
+    align-items: center;
+    width: 900px;
+    height: 100vh;
+    margin: 0 auto;
 }
-.side-bar {
-    width: 70px;
-    position: relative;
-    top: 0;
-    left: 0;
+.slider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 300px;
 }
-.side-bar > img {
-    display: block;
-    width: 149%;
-}
-i {
-    position: absolute;
-    background-color: rgba(204, 204, 204, 0.8);
-    border-radius: 1em;
-}
-.fal.fa-chevron-up {
-    right: 6px;
-    top: 10px;
-    padding: 2px 4px 4px 4px;
-}
-.fal.fa-chevron-down {
-    right: 6px;
-    bottom: 10px;
-    padding: 4px 4px 2px 4px;
+.items {
+    width: 100%;
+    height: 100%;
 }
 
-.not-active {filter: brightness(0.4);}
-.active {border: 2px solid #CCCCCC;}
+.item {
+    position: relative;
+    display: none;
+    height: 100%;
+}
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item.active {display: block;}
+.item .text {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.side-bar {
+    position: relative;
+    height: 100%;
+    background: #000000;
+}
+.thumb {
+    height: calc((300px) / 5);
+    opacity: 0.4;
+}
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.thumb.active {
+    border: 2px solid #CCCCCC;
+    opacity: 1;
+}
+
+.up, 
+.down {
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background: #CCCCCC;
+    cursor: pointer;
+}
+.up:hover, 
+.down:hover {
+    background-color: rgba(204, 204, 204, 0.8);
+    color: #000000;
+}
+.up {top: 0;}
+.down {bottom: 0;}
